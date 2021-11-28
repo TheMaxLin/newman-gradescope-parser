@@ -1,0 +1,21 @@
+{
+    "name": "newman-gradescope-parser",
+    "version": "1.0.0",
+    "description": "Run newman collection and parse results into Gradescope autograder format.",
+    "main": "run_newman.js",
+    "scripts": {
+        "build": "npm run clean && npm run zip",
+        "zip": "mkdir -p build && zip build/autograder.zip collection.json package.json run_autograder run_newman.js setup.sh",
+        "clean": "rm -f build/autograder.zip"
+    },
+    "author": "Max Lin",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.3.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.25.3"
+    },
+    "dependencies": {
+        "newman": "^5.3.0"
+    }
+}

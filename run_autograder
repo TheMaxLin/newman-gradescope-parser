@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Set up autograder files
+cp /autograder/submission/environment.json /autograder/source/environment.json
+cd /autograder/source
+
+node run_newman.js
