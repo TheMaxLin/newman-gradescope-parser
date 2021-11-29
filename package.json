@@ -5,7 +5,7 @@
     "main": "run_newman.js",
     "scripts": {
         "build": "npm run clean && npm run zip",
-        "zip": "mkdir -p build && zip build/autograder.zip collection.json package.json run_autograder run_newman.js setup.sh",
+        "zip": "mkdir -p build && zip -r build/autograder.zip collection.json package.json run_autograder run_newman.js setup.sh lib",
         "clean": "rm -f build/autograder.zip"
     },
     "author": "Max Lin",
