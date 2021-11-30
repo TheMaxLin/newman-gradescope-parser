@@ -22,14 +22,14 @@ A Gradescope autograder template for API testing. Runs a Postman collection in N
 2. Add a Postman collection file to root as `collection.json`. See [usage](#usage) for collection requirements.
 3. `npm run build` to create `autograder.zip` in the build directory. (Requires `zip`)
 4. Upload `autograder.zip` to Gradescope.
-5. Have students submit environment file with required variables.
+5. Have students submit environment file with required variables as `collection.json`.
 
 
 ## Usage
 
 ### Collection
 
-By default, there should be a Postman/Newman collection file in the root directory named `collection.json`. This can be changed in `lib/config.js`. It should be possible to also use a URL.
+By default, there should be a Postman/Newman collection file in the root directory named `collection.json`. This can be changed in `lib/config.js`.
 
 
 ### Assigning Point Values
