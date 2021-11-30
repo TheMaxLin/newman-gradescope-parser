@@ -7,10 +7,11 @@ A Gradescope autograder template for API testing. Runs a Postman collection in N
 
 1. [Quick Start](#quick-start)
 2. [Usage](#usage)
-    1. [Assigning Point Values](#assigning-point-values)
-    2. [Student Submission](#student-submission)
-    3. [Configuration](#configuration)
-    4. [Build](#build)
+    1. [Collection](#collection)
+    2. [Assigning Point Values](#assigning-point-values)
+    3. [Student Submission](#student-submission)
+    4. [Configuration](#configuration)
+    5. [Build](#build)
 3. [Autograder Files](#autograder-files)
 4. [To Do](#to-do)
 
@@ -25,6 +26,11 @@ A Gradescope autograder template for API testing. Runs a Postman collection in N
 
 
 ## Usage
+
+### Collection
+
+By default, there should be a Postman/Newman collection file in the root directory named `collection.json`. This can be changed in `lib/config.js`. It should be possible to also use a URL.
+
 
 ### Assigning Point Values
 
@@ -49,16 +55,16 @@ pm.test("Status code is 404. (2.5 pts)", function () {
 
 ### Student Submission
 
-Student should submit an environment file named `environment.json`. Easiest way is to export from Postman after filling in the `current value` fields for the necessary variables.
+Student should submit an environment file named `environment.json`. Easiest way is to export from Postman after filling in the `initial value` fields for the necessary variables.
+
 
 ### Configuration
 
-Edit options in `lib/config.js`.
+Edit options in `lib/config.js`. Here are the default starting values.
 
 Newman [run options](https://github.com/postmanlabs/newman#api-reference).
 
 ```javascript
-// default
 {
     reporters: 'cli', // Command line output is on
     timeoutRequest: 10000, // Request timeout (ms)
@@ -71,7 +77,6 @@ Newman [run options](https://github.com/postmanlabs/newman#api-reference).
 Gradescope options. See [Gradescope](https://gradescope-autograders.readthedocs.io/en/latest/specs/) under 'Output Format'.
 
 ```javascript
-// default
 output_props: {
     test_visibility: 'visible', // ['visible', 'hidden', 'after_due_date', 'after_published']
     stdout_visibility: 'hidden', // ['visible', 'hidden', 'after_due_date', 'after_published']
@@ -80,11 +85,11 @@ output_props: {
 
 The regex to read point values from Postman tests can also be set.
 ```javascript
-// default
 {
     weight_regex: /\(\s*([\d.]*)\s*pts?\)/
 }
 ```
+
 
 ### Build
 
@@ -94,33 +99,41 @@ npm run build
 
 This script will zip all the required autograder files into `build/autograder.zip`. (Requires `zip` command.)
 
+
 ## Autograder Files
 
 See Gradescope autograder [specifications](https://gradescope-autograders.readthedocs.io/en/latest/specs/).
+
 
 ### `setup.sh`
 
 *Required by Gradescope.* Setup script to install dependencies.
 
+
 ### `run_autograder`
 
 *Required by Gradescope.* Copy over submission files and run grading script.
+
 
 ### `run_newman.js`
 
 Main grading script. Runs the Postman collection using Newman and exports the results in Gradescope format to `/autograder/results/results.json`.
 
+
 ### `lib/parser.js`
 
 Contains all the parsing and output functions.
+
 
 ### `lib/config.js`
 
 Edit configuration options here.
 
+
 ### `package.json`
 
 Used to install dependencies.
+
 
 ### `collection.json`
 
