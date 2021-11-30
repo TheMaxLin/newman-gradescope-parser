@@ -1,6 +1,6 @@
 import { run } from 'newman';
-import { RUN_OPTIONS } from './lib/config';
-import newmanToGradescope from './lib/parser';
+import { RUN_OPTIONS } from './lib/config.js';
+import newmanToGradescope from './lib/parser.js';
 
 // Run the collection in Newman
 // Change run options in lib/config.js
