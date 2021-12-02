@@ -110,37 +110,37 @@ This script will zip all the required autograder files into `build/autograder.zi
 See Gradescope autograder [specifications](https://gradescope-autograders.readthedocs.io/en/latest/specs/).
 
 
-### `setup.sh`
+#### `setup.sh`
 
 *Required by Gradescope.* Setup script to install dependencies.
 
 
-### `run_autograder`
+#### `run_autograder`
 
 *Required by Gradescope.* Copy over submission files and run grading script.
 
 
-### `run_newman.js`
+#### `run_newman.js`
 
 Main grading script. Runs the Postman collection using Newman and exports the results in Gradescope format to `/autograder/results/results.json`.
 
 
-### `lib/parser.js`
+#### `lib/parser.js`
 
 Contains all the parsing and output functions.
 
 
-### `lib/config.js`
+#### `lib/config.js`
 
 Edit configuration options here.
 
 
-### `package.json`
+#### `package.json`
 
 Used to install dependencies.
 
 
-### `collection.json`
+#### `collection.json`
 
 The collection to run for grading. Must contain properly formatted Postman tests. See [usage](#usage).
 
