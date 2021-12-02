@@ -1,4 +1,4 @@
 node_modules/
 build/
-collection.json
-environment.json
+/collection.json
+/environment.json

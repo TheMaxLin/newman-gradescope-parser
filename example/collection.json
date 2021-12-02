@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "ba197c31-4e5f-455a-b8ad-833668aaa1fe",
+		"name": "Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Example Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// This test will not be included in the scoring.\r",
+							"pm.test(\"Status code is 200.\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// This test will be included in the scoring and is worth 1 pt.\r",
+							"// This test should pass.\r",
+							"pm.test(\"Status code is 200. (1 pts)\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// This test will be included in the scoring and is worth 1.5 pt.\r",
+							"// This test should fail.\r",
+							"pm.test(\"Status code is 201. (1.5 pts)\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// The resulting score of this request should be 1/2.5 pts."
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
