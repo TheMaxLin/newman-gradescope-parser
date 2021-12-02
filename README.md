@@ -29,7 +29,7 @@ A Gradescope autograder template for API testing. Runs a Postman collection in N
 
 ### Collection
 
-By default, there should be a Postman/Newman collection file in the root directory named `collection.json`. This can be changed in `lib/config.js`.
+By default, it is required to have a Postman/Newman collection file in the root directory named `collection.json`. This can be changed in `lib/config.js`.
 
 
 ### Assigning Point Values
@@ -48,6 +48,11 @@ pm.test("Status code is 200. (1 pt)", function () {
 
 // [0/2.5 pts] if failing. [2.5/2.5 pts] if passing.
 pm.test("Status code is 404. (2.5 pts)", function () {
+    pm.response.to.have.status(404);
+});
+
+// Not included in scoring.
+pm.test("Status code is 404.", function () {
     pm.response.to.have.status(404);
 });
 ```
@@ -144,3 +149,4 @@ The collection to run for grading. Must contain properly formatted Postman tests
 
 - Implement partial credit.
 - Decide on Gradescope output for students and instructors.
+- Lots of testing.
