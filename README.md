@@ -79,6 +79,12 @@ Newman [run options](https://github.com/postmanlabs/newman#api-reference).
 }
 ```
 
+Submission files to check before run.
+
+```javascript
+REQUIRED_FILES = ['environment.json'];
+```
+
 Gradescope options. See [Gradescope](https://gradescope-autograders.readthedocs.io/en/latest/specs/) under 'Output Format'.
 
 ```javascript
@@ -122,12 +128,16 @@ See Gradescope autograder [specifications](https://gradescope-autograders.readth
 
 #### `run_newman.js`
 
-Main grading script. Runs the Postman collection using Newman and exports the results in Gradescope format to `/autograder/results/results.json`.
+Main grading script. Verifies submission files, then runs the Postman collection using Newman and exports the results in Gradescope format to `/autograder/results/results.json`.
 
 
 #### `lib/parser.js`
 
 Contains all the parsing and output functions.
+
+#### `lib/files.js`
+
+Utilities for file checks.
 
 
 #### `lib/config.js`
